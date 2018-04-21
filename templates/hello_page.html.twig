@@ -1,5 +1,21 @@
-<html>
-        <body>
-        Hello first page!
-        </body>
-</html>
+
+
+{% block body %}
+
+<main class="container main">
+    <div>
+Hello {{app.request.query.get('name')| default ("guys") }}!
+    </div>
+    <div>
+            My Lovely var: {{ someAwesomeVariable | default ('Lovin default values!') }}
+    </div>
+    <div>
+            Hello {{ getName | default ("guys") }}!
+    </div>
+</main>
+{% endblock %}
+
+{% block title %} Some random title {% endblock %}
+
+{% extends 'base.html.twig' %}
+
